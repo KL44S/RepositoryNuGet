@@ -5,7 +5,7 @@
     <Authors>KL44S</Authors>
     <Company>MT</Company>
     <Description>It provides interfaces to implement the repository pattern</Description>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
 </Project>
