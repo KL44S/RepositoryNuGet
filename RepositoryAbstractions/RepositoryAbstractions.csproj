@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>KL44S</Authors>
+    <Company>MT</Company>
+    <Description>It provides interfaces to implement the repository pattern</Description>
+    <Version>1.0.3</Version>
+  </PropertyGroup>
+
+</Project>
