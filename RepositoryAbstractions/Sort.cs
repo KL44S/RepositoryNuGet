@@ -10,7 +10,7 @@ namespace RepositoryAccess
 
         public Sort(Expression<Func<T, TKey>> sortExpression, SortType sortType)
         {
-            this.SortExpression = SortExpression;
+            this.SortExpression = sortExpression;
             this.SortType = sortType;
         }
     }
