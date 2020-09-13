@@ -20,7 +20,7 @@ namespace RepositoryAccess
         Task InsertManyAsync(IList<T> entities);
 
         /// <summary>
-        /// Replace the existing entity matched by the expression by the one provided as param.
+        /// Replace the existing entity matched by the expression by the one provided as param. If replacement couldn't be done, a ReplaceException will be thrown.
         /// </summary>
         /// <param name="expression">Expression to search the entity to be replaced.</param>
         /// <param name="entity">New entity to replace the one matched with the expression.</param>
