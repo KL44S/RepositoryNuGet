@@ -6,8 +6,8 @@
     <Company>MT</Company>
     <Description>Provides repository interfaces to be implemented.</Description>
     <Version>3.1.0</Version>
-    <AssemblyVersion>3.1.0.0</AssemblyVersion>
-    <FileVersion>3.1.0.0</FileVersion>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <FileVersion>4.0.0.0</FileVersion>
   </PropertyGroup>
 
 </Project>
