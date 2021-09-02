@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -13,14 +13,14 @@ namespace RepositoryAccess
         /// <returns>
         /// All entities.
         /// </returns>
-        Task<IList<T>> GetAllAsync();
+        Task<IQueryable<T>> GetAllAsync();
 
         /// <summary>
         /// Get all entities matched with the expression provided.
         /// </summary>
         /// <param name="expression">Expression to find the entities to retrieve.</param>
         /// <returns>Entities matched with the expression provided.</returns>
-        Task<IList<T>> GetAllByConditionsAsync(Expression<Func<T, bool>> expression);
+        Task<IQueryable<T>> GetAllByConditionsAsync(Expression<Func<T, bool>> expression);
 
         /// <summary>
         /// Get sorted entities matched with the expression provided.
@@ -28,7 +28,7 @@ namespace RepositoryAccess
         /// <param name="expression">Expression to find the entities to retrieve.</param>
         /// <param name="sort">Specification to sort the entities matched.</param>
         /// <returns>Sorted entities matched with the expression provided.</returns>
-        Task<IList<T>> GetAllByConditionsAsync<TKey>(Expression<Func<T, bool>> expression, Sort<T, TKey> sort);
+        Task<IQueryable<T>> GetAllByConditionsAsync<TKey>(Expression<Func<T, bool>> expression, Sort<T, TKey> sort);
 
         /// <summary>
         /// Get sorted and paginated entities matched with the expression provided.
@@ -37,6 +37,21 @@ namespace RepositoryAccess
         /// <param name="sort">Specification to sort the entities matched.</param>
         /// <param name="pagination">Specification to paginate the entities to be retrieved.</param>
         /// <returns>Sorted and paginated entities matched with the expression provided.</returns>
-        Task<IList<T>> GetAllByConditionsAsync<TKey>(Expression<Func<T, bool>> expression, Sort<T, TKey> sort, Pagination pagination);
+        Task<IQueryable<T>> GetAllByConditionsAsync<TKey>(Expression<Func<T, bool>> expression, Sort<T, TKey> sort, Pagination pagination);
+
+        /// <summary>
+        /// Get the first entity matched with the expression provided.
+        /// </summary>
+        /// <param name="expression">Expression to find the entity to retrieve.</param>
+        /// <returns>First entity with the expression provided.</returns>
+        Task<T> GetFirstByConditionsAsync(Expression<Func<T, bool>> expression);
+
+        /// <summary>
+        /// Get the first entity matched with the expression provided.
+        /// </summary>
+        /// <param name="expression">Expression to find the entity to retrieve.</param>
+        /// <param name="sort">Specification to sort the entities matched.</param>
+        /// <returns>First of the sorted entities matched with the expression provided.</returns>
+        Task<T> GetFirstByConditionsAsync<TKey>(Expression<Func<T, bool>> expression, Sort<T, TKey> sort);
     }
 }
