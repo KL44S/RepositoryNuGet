@@ -42,7 +42,7 @@ steps:
         echo "##vso[task.setvariable variable=pkgName]$pkgName"
   displayName: Get Package Name
 
-- script: dotnet nuget push $(artifactPath)/$(pkgName) -k $(NUGETKEY) -s https://api.nuget.org/v3/index.json
+- script: dotnet nuget push $(artifactPath)/$(pkgName) -k $NUGETKEY -s https://api.nuget.org/v3/index.json
   env:
-    NUGETKEY: '$(nugetKey)'
+    NUGETKEY: $(nuget-key-vg)
   displayName: Push NuGet to feed
