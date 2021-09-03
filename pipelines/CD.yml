@@ -1,7 +1,7 @@
 resources:
   pipelines:
-  - pipeline: ci
-    source: CI
+  - pipeline: repo-ci
+    source: Repository-CD
     trigger:
       branches:
         include:
@@ -15,7 +15,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  artifactPath: '$(Pipeline.Workspace)/ci/drop'
+  artifactPath: '$(Pipeline.Workspace)/repo-ci/drop'
   jobName: ''
   herokuAppName: ''
 
@@ -28,9 +28,9 @@ steps:
     definition: '7'
     specificBuildWithTriggering: true
     buildVersionToDownload: 'specific'
-    pipelineId: $(resources.pipeline.ci.runID)
+    pipelineId: $(resources.pipeline.repo-ci.runID)
     artifactName: 'drop'
-    targetPath: '$(Pipeline.Workspace)/ci/drop'
+    targetPath: '$(Pipeline.Workspace)/repo-ci/drop'
 
 - task: UseDotNet@2
   displayName: Use dotnet
