@@ -22,9 +22,17 @@ steps:
     workingDirectory: '$(Pipeline.Workspace)'
 
 - task: DotNetCoreCLI@2
-  displayName: dotnet build
+  displayName: dotnet pack
   inputs:
     command: 'pack'
     packagesToPack: '**/*.csproj'
+    packDirectory: '$(Build.ArtifactStagingDirectory)'
     nobuild: true
     versioningScheme: 'off'
+
+- task: PublishPipelineArtifact@1
+  displayName: Publish artifact
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'drop'
+    publishLocation: 'pipeline'
