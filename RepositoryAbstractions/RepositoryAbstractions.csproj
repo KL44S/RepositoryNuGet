@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <Authors>KL44S</Authors>
     <Company>MT</Company>
     <Description>Provides repository interfaces to be implemented.</Description>
