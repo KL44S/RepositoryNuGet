@@ -27,7 +27,6 @@ steps:
     command: 'pack'
     packagesToPack: '**/*.csproj'
     packDirectory: '$(Build.ArtifactStagingDirectory)'
-    nobuild: true
     versioningScheme: 'off'
 
 - task: PublishPipelineArtifact@1
