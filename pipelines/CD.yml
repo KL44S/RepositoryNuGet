@@ -1,0 +1,46 @@
+resources:
+  pipelines:
+  - pipeline: ci
+    source: CI
+    trigger:
+      branches:
+        include:
+        - master
+
+trigger: none
+
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  artifactPath: '$(Pipeline.Workspace)/ci/drop'
+  jobName: ''
+  herokuAppName: ''
+
+steps:
+- task: DownloadPipelineArtifact@2
+  displayName: Download Artifact
+  inputs:
+    buildType: 'specific'
+    project: '50289722-edfb-4117-aa0a-52d588229c77'
+    definition: '7'
+    specificBuildWithTriggering: true
+    buildVersionToDownload: 'specific'
+    pipelineId: $(resources.pipeline.ci.runID)
+    artifactName: 'drop'
+    targetPath: '$(Pipeline.Workspace)/ci/drop'
+
+- task: UseDotNet@2
+  displayName: Use dotnet
+  inputs:
+    packageType: 'runtime'
+    version: '5.x'
+
+- script: ls '$(Pipeline.Workspace)/ci/drop'
+
+- script: dotnet nuget push %1 -k $(NUGETKEY) -s https://api.nuget.org/v3/index.json
+  env:
+    NUGETKEY: '$(nugetKey)'
+  displayName: Push NuGet to feed
