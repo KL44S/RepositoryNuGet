@@ -15,8 +15,11 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  artifactPath: '$(Pipeline.Workspace)/repo-ci/drop'
-  pkgName: ''
+- group: secrets
+- name: artifactPath
+  value: '$(Pipeline.Workspace)/repo-ci/drop'
+- name: pkgName
+  value: ''
 
 steps:
 - task: DownloadPipelineArtifact@2
