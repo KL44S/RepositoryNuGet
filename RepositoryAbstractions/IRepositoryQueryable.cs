@@ -7,6 +7,6 @@ namespace RepositoryAbstractions
 {
     public interface IRepositoryQueryable<T> : IQueryable<T>
     {
-        Task<IList<T>> ToListAsync(CancellationToken cancellationToken = default);
+        Task<List<T>> ToListAsync(CancellationToken cancellationToken = default);
     }
 }
