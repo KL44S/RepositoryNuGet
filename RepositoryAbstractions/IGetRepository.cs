@@ -15,7 +15,7 @@ namespace RepositoryAccess
         /// <returns>
         /// All entities.
         /// </returns>
-        IEnumerable<T> GetAllAsync(CancellationToken cancellationToken = default);
+        Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get all entities matched with the expression provided.
@@ -23,7 +23,7 @@ namespace RepositoryAccess
         /// <param name="expression">Expression to find the entities to retrieve.</param>
         /// <param name="cancellationToken">[Optional]Token used to cancel the task.</param>
         /// <returns>Entities matched with the expression provided.</returns>
-        IEnumerable<T> GetAllByConditionsAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default);
+        Task<IEnumerable<T>> GetAllByConditionsAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get sorted entities matched with the expression provided.
@@ -32,7 +32,7 @@ namespace RepositoryAccess
         /// <param name="sort">Specification to sort the entities matched.</param>
         /// <param name="cancellationToken">[Optional]Token used to cancel the task.</param>
         /// <returns>Sorted entities matched with the expression provided.</returns>
-        IEnumerable<T> GetAllByConditions<TKey>(
+        Task<IEnumerable<T>> GetAllByConditions<TKey>(
             Expression<Func<T, bool>> expression, 
             Sort<T, TKey> sort,
             CancellationToken cancellationToken = default);
@@ -45,7 +45,7 @@ namespace RepositoryAccess
         /// <param name="pagination">Specification to paginate the entities to be retrieved.</param>
         /// <param name="cancellationToken">[Optional]Token used to cancel the task.</param>
         /// <returns>Sorted and paginated entities matched with the expression provided.</returns>
-        IEnumerable<T> GetAllByConditions<TKey>(
+        Task<IEnumerable<T>> GetAllByConditions<TKey>(
             Expression<Func<T, bool>> expression, 
             Sort<T, TKey> sort, 
             Pagination pagination,

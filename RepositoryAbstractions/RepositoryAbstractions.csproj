@@ -5,9 +5,9 @@
     <Authors>KL44S</Authors>
     <Company>MT</Company>
     <Description>Provides repository interfaces to be implemented.</Description>
-    <Version>8.0.0</Version>
+    <Version>9.0.0</Version>
     <AssemblyVersion>8.0.0.0</AssemblyVersion>
-    <FileVersion>8.0.0.0</FileVersion>
+    <FileVersion>9.0.0.0</FileVersion>
   </PropertyGroup>
 
 </Project>
