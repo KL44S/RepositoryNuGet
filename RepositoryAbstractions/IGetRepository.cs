@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RepositoryAccess
@@ -44,7 +45,7 @@ namespace RepositoryAccess
         /// </summary>
         /// <param name="expression">Expression to find the entity to retrieve.</param>
         /// <returns>First entity with the expression provided.</returns>
-        Task<T> GetFirstByConditionsAsync(Expression<Func<T, bool>> expression);
+        Task<T> GetFirstByConditionsAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the first entity matched with the expression provided.
@@ -52,6 +53,9 @@ namespace RepositoryAccess
         /// <param name="expression">Expression to find the entity to retrieve.</param>
         /// <param name="sort">Specification to sort the entities matched.</param>
         /// <returns>First of the sorted entities matched with the expression provided.</returns>
-        Task<T> GetFirstByConditionsAsync<TKey>(Expression<Func<T, bool>> expression, Sort<T, TKey> sort);
+        Task<T> GetFirstByConditionsAsync<TKey>(
+            Expression<Func<T, bool>> expression, 
+            Sort<T, TKey> sort, 
+            CancellationToken cancellationToken = default);
     }
 }

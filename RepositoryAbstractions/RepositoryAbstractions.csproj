@@ -5,9 +5,9 @@
     <Authors>KL44S</Authors>
     <Company>MT</Company>
     <Description>Provides repository interfaces to be implemented.</Description>
-    <Version>7.3.0</Version>
-    <AssemblyVersion>7.3.0.0</AssemblyVersion>
-    <FileVersion>7.3.0.0</FileVersion>
+    <Version>7.4.0</Version>
+    <AssemblyVersion>7.4.0.0</AssemblyVersion>
+    <FileVersion>7.4.0.0</FileVersion>
   </PropertyGroup>
 
 </Project>
