@@ -4,13 +4,13 @@ trigger:
 pr: none
 
 pool:
-  vmImage: windows-latest
+  vmImage: ubuntu-latest
 
 steps:
 - task: UseDotNet@2
   displayName: Use dotnet
   inputs:
-    packageType: 'runtime'
+    packageType: 'sdk'
     version: '6.x'
 
 - task: DotNetCoreCLI@2
