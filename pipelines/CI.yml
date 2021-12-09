@@ -11,7 +11,7 @@ steps:
   displayName: Use dotnet
   inputs:
     packageType: 'runtime'
-    version: '6.x'
+    version: '6.x.x'
 
 - task: DotNetCoreCLI@2
   displayName: dotnet build
