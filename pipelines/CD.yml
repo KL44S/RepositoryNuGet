@@ -38,7 +38,7 @@ steps:
   displayName: Use dotnet
   inputs:
     packageType: 'runtime'
-    version: '5.x'
+    version: '6.x'
 
 - bash: |
         pkgName=`ls '$(Pipeline.Workspace)/repo-ci/drop'`
