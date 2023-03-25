@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 
 namespace RepositoryAbstractions
 {
-    public interface ITransaction
+    public interface ITransaction : IDisposable
     {
         Task StartTransactionAsync();
         Task AbortTransactionAsync();
         Task CommitTransactionAsync();
     }
 
-    public interface ITransactionFactory : IDisposable
+    public interface ITransactionFactory
     {
         Task<ITransaction> CreateTransactionAsync(CancellationToken cancellationToken);
     }
