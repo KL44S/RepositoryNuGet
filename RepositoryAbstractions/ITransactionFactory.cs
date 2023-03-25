@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RepositoryAbstractions
@@ -10,7 +11,7 @@ namespace RepositoryAbstractions
         void CommitTransaction();
     }
 
-    public interface ITransactionFactory
+    public interface ITransactionFactory : IDisposable
     {
         Task<ITransaction> CreateTransactionAsync(CancellationToken cancellationToken);
     }
