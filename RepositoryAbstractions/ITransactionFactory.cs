@@ -6,9 +6,9 @@ namespace RepositoryAbstractions
 {
     public interface ITransaction : IDisposable
     {
-        Task StartTransactionAsync();
-        Task AbortTransactionAsync();
-        Task CommitTransactionAsync();
+        Task StartTransactionAsync(CancellationToken cancellationToken);
+        Task AbortTransactionAsync(CancellationToken cancellationToken);
+        Task CommitTransactionAsync(CancellationToken cancellationToken);
     }
 
     public interface ITransactionFactory
